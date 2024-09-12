@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yo
+    </title>
+    <!-- Link to Google Fonts for cool fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            text-align: center;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: rgba(0, 0, 0, 0.6); /* Fallback background color */
+            border: 10px solid #333; /* Border around the site */
+            box-sizing: border-box;
+        }
+
+        /* Video background styles */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(50%); /* Darken video for better text readability */
+        }
+
+        /* Content container */
+        .content-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Top text */
+        .top-text {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3em;
+            margin: 0;
+            animation: slideInFromTop 1.5s ease-out;
+        }
+
+        p {
+            font-size: 1.25em;
+            margin-top: 10px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        /* Social links */
+        .social-links {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #fff;
+            background-color: #e4405f; /* Instagram color */
+            text-shadow: 0 0 8px #e4405f;
+            transform: scale(1.1);
+        }
+
+        /* Audio player styles */
+        .audio-player {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Custom video player styles */
+        .custom-video-player {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .custom-video-player button {
+            background: rgba(255, 255, 255, 0.2); /* Semi-transparent */
+            border: 2px solid #fff;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+            padding: 10px;
+        }
+
+        .custom-video-player button:hover {
+            background: rgba(255, 255, 255, 0.4); /* Lighter transparent background on hover */
+            transform: scale(1.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        .custom-video-player button:active {
+            background: rgba(255, 255, 255, 0.6); /* Even lighter background when clicked */
+            transform: scale(0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInFromTop {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <video class="video-background" autoplay muted loop>
+        <source src="monster.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="content-container">
+        <div class="top-text">
+            <h1>Hi, I'm Adnan</h1>
+            <p>Discover more about me and connect with me:</p>
+        </div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/_khan1adnan_" target="_blank" rel="noopener noreferrer">
+                Instagram
+            </a>
+            <a href="https://discord.gg/yourdiscord" target="_blank" rel="noopener noreferrer">
+                Discord
+            </a>
+        </div>
+        <audio class="audio-player" autoplay>
+            <source src="C:\Users\addik\Desktop\me\X2Download.app - Monster (Lofi Anime Flip) (128 kbps).mp3" type="audio/mp3">
+        </audio>
+        <div class="custom-video-player">
+            <button id="playPauseButton">▶️</button>
+        </div>
+        <!-- Hidden audio elements for sound effects -->
+        <audio id="playSound" src="C:\Users\addik\Desktop\me\light-switch-156813.mp3"></audio>
+        <audio id="pauseSound" src="C:\Users\addik\Desktop\me\light-switch-156813.mp3"></audio>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.querySelector('.audio-player');
+            const video = document.querySelector('.video-background');
+            const playPauseButton = document.getElementById('playPauseButton');
+            const playSound = document.getElementById('playSound');
+            const pauseSound = document.getElementById('pauseSound');
+
+            // Auto-play audio
+            if (audio) {
+                audio.play().catch(error => {
+                    console.log('Autoplay was prevented:', error);
+                });
+            }
+
+            // Play/Pause functionality for video and audio
+            playPauseButton.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                    audio.play(); // Play audio if it was paused
+                    playPauseButton.textContent = '⏸️'; // Change to pause icon
+                    playSound.play(); // Play sound effect
+                } else {
+                    video.pause();
+                    audio.pause(); // Pause audio if video is paused
+                    playPauseButton.textContent = '▶️'; // Change to play icon
+                    pauseSound.play(); // Play sound effect
+                }
+            });
+        });
+    </script>
+</body>
+</html>
